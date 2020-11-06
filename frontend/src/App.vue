@@ -1,6 +1,16 @@
 <template>
   <div>
-      <router-link to='/cost/new'>New Cost</router-link>
-    <router-view></router-view>
+      <Options></Options>
   </div>
 </template>
+
+<script>
+import Options from './components/Options';
+
+export default {
+  name: 'App',
+  components: {
+    Options
+  }
+}
+</script>

@@ -1,8 +1,19 @@
-import { createWebHistory, createRouter } from 'vue-router';
-import NewCost from '@/components/NewCost';
+import { createRouter, createWebHistory } from 'vue-router';
+import Cost from '@/pages/Cost';
+import NewClient from '@/pages/NewClient';
 
 const routes =  [
-    { path: '/cost/new', name: 'NewCost', component: NewCost }
+    { 
+        path: '/cost', 
+        name: 'Cost', 
+        component: Cost 
+    },
+    
+    {
+        path: '/client/new',
+        name: 'NewClient',
+        component: NewClient
+    }
 ];
 
 const router = createRouter({
