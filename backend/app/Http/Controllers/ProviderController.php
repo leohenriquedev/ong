@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Client;
+use App\Models\Provider;
 
-class ClientController extends Controller
+class ProviderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class ClientController extends Controller
      */
     public function index()
     {
-        $clients = Client::orderBy('value', 'desc')->get()->take(10);
-        return $clients;
+        $providers = Provider::orderBy('value', 'desc')->get()->take(10);
+        return $providers;
     }
 
     /**
@@ -36,10 +36,10 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        $client = new Client();
-        $client->name = $request->name;
-        $client->value = $request->value;
-        $client->save();
+        $provider = new Provider();
+        $provider->name = $request->name;
+        $provider->value = $request->value;
+        $provider->save();
 
         return $request;
     }

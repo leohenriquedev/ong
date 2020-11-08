@@ -4,13 +4,13 @@
             <thead>
                 <tr>
                     <th>Nome</th>
-                    <th>Email</th>
+                    <th>Valor</th>
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="user in users" :key="user.id">
-                    <td> {{ user.name }}</td>
-                    <td> {{ user.email }}</td>
+                <tr v-for="client in clients" :key="client.id">
+                    <td> {{ client.name }}</td>
+                    <td> {{ client.value }}</td>
                 </tr>
             </tbody>
         </table>
@@ -25,15 +25,15 @@ export default {
 
     data: function() {
         return {
-            users: []
+            clients: []
         }
     },
     mounted() {
-        this.getData();
+        this.getClients();
     },
     methods: {
-        getData: async function() {
-            await api.get('http://localhost:3000/api/users').then(response => (this.users = response.data));
+        getClients: async function() {
+            await api.get('http://localhost:8000/api/clients').then(response => (this.clients = response.data));
         }
     }
 

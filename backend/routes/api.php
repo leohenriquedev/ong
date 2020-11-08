@@ -2,7 +2,10 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\ProviderController;
+use App\Http\Controllers\OngController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +22,11 @@ use App\Http\Controllers\ClientController;
 //     return $request->user();
 // });
 
-Route::get('/client', [ClientController::class, 'index']);
+Route::get('/clients', [ClientController::class, 'index']);
+Route::post('/clients/new', [ClientController::class, 'store']);
+
+Route::get('/providers', [ProviderController::class, 'index']);
+Route::post('/providers/new', [ProviderController::class, 'store']);
+
+Route::get('/ong', [OngController::class, 'index']);
+Route::get('/ong/currentPrice', [OngController::class, 'currentPrice']);

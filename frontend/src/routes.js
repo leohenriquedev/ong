@@ -1,18 +1,25 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Cost from '@/pages/Cost';
 import NewClient from '@/pages/NewClient';
+import NewProvider from '@/pages/NewProvider';
+import Reports from '@/pages/Reports';
 
 const routes =  [
     { 
-        path: '/cost', 
-        name: 'Cost', 
-        component: Cost 
+        path: '/reports', 
+        name: 'Reports', 
+        component: Reports 
     },
     
     {
         path: '/client/new',
         name: 'NewClient',
         component: NewClient
+    },
+
+    {
+        path: '/provider/new',
+        name: 'NewProvider',
+        component: NewProvider
     }
 ];
 
