@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
+
 import NewClient from '@/pages/NewClient';
 import NewProvider from '@/pages/NewProvider';
 import Reports from '@/pages/Reports';

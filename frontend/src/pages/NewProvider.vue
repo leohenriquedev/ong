@@ -1,16 +1,16 @@
 <template>
-    <form v-on:submit.prevent="addProvider">
-        name: <input type="text" name="name" v-model="provider.name">
-        Value: <input type="number" name="value" v-model="provider.value">
-        <button type="submit">Add</button>
-    </form>
+    <Form :data="provider" v-on:submit-form="addProvider"></Form>
 </template>
 
 <script>
 
 import api from '../services/api';
+import Form from '../components/Form';
 
 export default {
+    components: {
+        Form
+    },
     data: function () {
         return {
             provider: {
@@ -21,8 +21,8 @@ export default {
         }
     },
     methods: {
-        addProvider: async function() {
-            await api.post('http://localhost:8000/api/providers/new', this.provider).then(response => (this.return = response.data));
+        addProvider: async function(data) {
+            await api.post('http://localhost:8000/api/providers/new', data).then(response => (this.return = response.data));
             this.provider.name = '';
             this.provider.value = '';
         }

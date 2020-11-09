@@ -1,16 +1,16 @@
 <template>
-    <form v-on:submit.prevent="addClient">
-        name: <input type="text" name="name" v-model="client.name">
-        Value: <input type="number" name="value" v-model="client.value">
-        <button type="submit">Add</button>
-    </form>
+    <Form :data="client" v-on:submit-form="addClient"></Form>
 </template>
 
 <script>
 
 import api from '../services/api';
+import Form from '../components/Form';
 
 export default {
+    components: {
+        Form
+    },
     data: function () {
         return {
             client: {
@@ -21,10 +21,11 @@ export default {
         }
     },
     methods: {
-        addClient: async function() {
-            await api.post('http://localhost:8000/api/clients/new', this.client).then(response => (this.return = response.data));
+        addClient: async function(data) {
+            await api.post('http://localhost:8000/api/clients/new', data).then(response => (this.return = response.data));
             this.client.name = '';
             this.client.value = '';
+
         }
     }
 }

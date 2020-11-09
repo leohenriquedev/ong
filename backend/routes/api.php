@@ -28,5 +28,4 @@ Route::post('/clients/new', [ClientController::class, 'store']);
 Route::get('/providers', [ProviderController::class, 'index']);
 Route::post('/providers/new', [ProviderController::class, 'store']);
 
-Route::get('/ong', [OngController::class, 'index']);
-Route::get('/ong/currentPrice', [OngController::class, 'currentPrice']);
+Route::get('/ong/reports', [OngController::class, 'reports']);
