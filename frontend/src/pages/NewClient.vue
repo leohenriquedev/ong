@@ -25,7 +25,6 @@ export default {
             await api.post('http://localhost:8000/api/clients/new', data).then(response => (this.return = response.data));
             this.client.name = '';
             this.client.value = '';
-
         }
     }
 }
