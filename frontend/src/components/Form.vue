@@ -1,8 +1,8 @@
 <template>
     <form v-on:submit.prevent="submitForm">
-        Name: <input type="text" name="name" v-model="dataForm.name">
-        Value: <input type="number" name="value" v-model="dataForm.value">
-        <button type="submit">Add</button>
+        Name: <input type="text" name="name" v-model="dataForm.name" required>
+        Value: <input type="number" name="value" v-model="dataForm.value" required>
+        <button class="btn btn-success" type="submit">Add</button>
     </form>
 </template>
 

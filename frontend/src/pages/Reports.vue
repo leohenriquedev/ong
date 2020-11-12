@@ -1,19 +1,22 @@
 <template>
-    <div>
-        <table>
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>Valor</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="client in clients" :key="client.id">
-                    <td> {{ client.name }}</td>
-                    <td> {{ client.value }}</td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="d-flex justify-content-center pt-5">
+        <div class="container col-md-8">
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="client in clients" :key="client.id">
+                        <td> {{ client.name }}</td>
+                        <td> {{ client.value }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </template>
 

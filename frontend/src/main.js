@@ -1,8 +1,17 @@
 import { createApp } from 'vue';
 import App from './App.vue';
-import router from './routes';
-// import VueMaterial from 'vue-material';
-// import 'vue-material/dist/vue-material.css';
+import router from './router';
+// import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-vue/dist/bootstrap-vue.css';
 
 
-createApp(App).use(router).mount('#app')
+const app = createApp(App);
+app.use(router);
+// app.use(BootstrapVue);
+// app.use(BootstrapVueIcons);
+
+app.mount('#app');
+
+// createApp(App).use(router).mount('#app');
+
