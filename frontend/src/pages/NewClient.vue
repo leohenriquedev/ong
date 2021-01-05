@@ -1,5 +1,5 @@
 <template>
-    <Form :data="client" v-on:submit-form="addClient"></Form>
+    <Form :title="'Novo Cliente'" v-on:submit-form="addClient"></Form>
 </template>
 
 <script>
@@ -11,20 +11,11 @@ export default {
     components: {
         Form
     },
-    data: function () {
-        return {
-            client: {
-                name: '',
-                value: ''
-            },
-            return: []
-        }
-    },
     methods: {
         addClient: async function(data) {
-            await api.post('http://localhost:8000/api/clients/new', data).then(response => (this.return = response.data));
-            this.client.name = '';
-            this.client.value = '';
+            await api.post('/clients/new', data).then(() => {
+                this.$router.push('/');
+            });
         }
     }
 }

@@ -1,16 +1,17 @@
 <template>
   <div>
-      <Options></Options>
+      <Navbar></Navbar>
+      <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Options from './components/Options';
+import Navbar from './components/Navbar';
 
 export default {
   name: 'App',
   components: {
-    Options
+    Navbar
   }
 }
 </script>

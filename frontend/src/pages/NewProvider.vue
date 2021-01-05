@@ -1,5 +1,5 @@
 <template>
-    <Form :data="provider" v-on:submit-form="addProvider"></Form>
+    <Form :title="'Novo Fornecedor'" v-on:submit-form="addProvider"></Form>
 </template>
 
 <script>
@@ -11,20 +11,12 @@ export default {
     components: {
         Form
     },
-    data: function () {
-        return {
-            provider: {
-                name: '',
-                value: ''
-            },
-            return: []
-        }
-    },
     methods: {
         addProvider: async function(data) {
-            await api.post('http://localhost:8000/api/providers/new', data).then(response => (this.return = response.data));
-            this.provider.name = '';
-            this.provider.value = '';
+            await api.post('/providers/new', data).then(() => {
+                this.$router.push('/');
+            });
+            
         }
     }
 }

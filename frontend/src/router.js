@@ -6,7 +6,7 @@ import Reports from '@/pages/Reports';
 
 const routes =  [
     { 
-        path: '/reports', 
+        path: '/', 
         name: 'Reports', 
         component: Reports 
     },

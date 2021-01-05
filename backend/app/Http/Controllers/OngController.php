@@ -15,14 +15,25 @@ class OngController extends Controller
      */
     public function reports()
     {
-        $ong = DB::table('clients')->union(DB::table('providers'))->orderBy('created_at', 'asc')->get();
+        $ongInfo = [];
+
+        $clients = DB::table('clients')->orderBy('value', 'desc')->get()->take(5);
+        $providers = DB::table('providers')->orderBy('value', 'desc')->get()->take(5);
+
+        foreach ($clients as $key => $value) {
+            $ongInfo[] = array_merge((array) $value, ['type' => 'client']);
+        }
+
+        foreach ($providers as $key => $value) {
+            $ongInfo[] = array_merge((array) $value, ['type' => 'provider']);
+        }
 
         $clientsPrice = DB::table('clients')->sum('value');
         $providersPrice = DB::table('providers')->sum('value');
         $currentPrice = $clientsPrice - $providersPrice;
 
         return [
-            'ong' => $ong,
+            'ong' => $ongInfo,
             'currentPrice' => $currentPrice
         ];
     }
