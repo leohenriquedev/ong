@@ -3,10 +3,10 @@
         
         <div class="container col-md-8">
             
-            <Table :title="'Maiores Receitas'" :data="clients"></Table>
-            <Table :title="'Maiores Custos'" :data="providers"></Table>
-
-
+            <Table :title="'Maiores Receitas'" :type="'user'" :data="clients"></Table>
+            <Table :title="'Maiores Custos'" :type="'user'" :data="providers"></Table>
+            <Table :title="'Ong'" :type="'ong'" :data="ong" :total="currentPrice"></Table>
+            
         </div>
     </div>
 </template>
@@ -25,8 +25,8 @@ export default {
         return {
             clients: [],
             providers: [],
-            ongInfo: [],
-            currentPrice: 0,
+            ong: [],
+            currentPrice: 0
         }
     },
     created() {
@@ -43,7 +43,7 @@ export default {
         },
         getOngInfo: async function() {
             await api.get('/ong/reports').then((response) => {
-                this.ongInfo = response.data.ong;
+                this.ong = response.data.ong;
                 this.currentPrice = response.data.currentPrice;
             });
         }
