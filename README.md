@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://flexpeak.com.br/ifpk/img/logo-flex_branco.png" width="100">
+    <img src="https://newmdinformatica.com.br/flexpeak/img/logo-flex_branco.png" width="100">
 </p>
 
 # Flexpeak - Desafio Técnico (Desenvolvedor Laravel)
